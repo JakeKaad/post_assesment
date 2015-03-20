@@ -1,7 +1,8 @@
 Simple Blog 
 ==========
 
-This is a blog made for our first Epicodus Ruby on Rails Assesment.  On this site, a user is able to Make a post, and comment on a post.  
+This is a blog made for our first Epicodus Ruby on Rails Assesment.  On this site, a user is able to Make a post, and comment on a post. I used
+bootstrap_forms which automatically displays erros without the need for an errors partial  
 
 Install
 -------
