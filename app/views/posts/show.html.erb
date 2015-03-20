@@ -1,3 +1,7 @@
-<%= @post.title %>
-
+<%= render 'shared/title', header: @post.title %>
+<div class="post-options" %>
+  <%= link_to "Edit", edit_post_path(@post) %>
+  <%= spacer %>
+  <%= link_to "Delete", post_path(@post), data: {confirm: "Are you sure?", method: "delete"} %>
+</div>
 <%= @post.content %>
