@@ -12,6 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bootstrap_form'
+gem 'fabrication'
+gem 'faker'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
