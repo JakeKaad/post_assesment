@@ -1,4 +1,9 @@
-<%= @posts.each do |post| %>
-	<%= post.title %>
-	<%= post.content %>
-<% end %>
+<%= render 'shared/title', header: "All" %>
+
+<ul class="list-unstyled">
+  <% @posts.each do |post| %>
+  	<li><%= link_to post.title, post %></li>
+  <% end %>
+</ul>
+
+<h5><%= link_to "New Post", new_post_path %>

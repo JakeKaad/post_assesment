@@ -10,8 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require rails_bootstrap_forms
  *= require_self
  */
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+.post-options {
+  float: right;
+  margin-top: -5%;
+}
