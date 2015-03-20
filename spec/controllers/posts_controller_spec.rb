@@ -123,4 +123,25 @@ describe PostsController do
     end
   end
 
+  describe "DELETE destroy" do 
+    let(:post) { Fabricate(:post) }
+    before { delete :destroy, id: post.id }
+
+    it "redirects to the home page" do
+      expect(response).to redirect_to root_path
+    end
+
+    it "sets the correct post" do 
+      expect(assigns(:post)).to eq post
+    end 
+
+    it "deletes the post" do 
+      expect(Post.all).to be_empty
+    end
+
+    it "sets the  flash alert" do 
+      expect(flash[:notice]).to_not be_empty
+    end
+  end
+
 end
