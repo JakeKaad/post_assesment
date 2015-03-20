@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bootstrap_form'
 gem 'fabrication'
 gem 'faker'
+gem 'nested_form'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
