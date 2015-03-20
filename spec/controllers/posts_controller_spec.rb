@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe PostsController do 
-
   describe 'GET index' do 
     it "sets @posts" do 
       post = Fabricate(:post)
@@ -34,7 +33,6 @@ describe PostsController do
 
   describe 'POST create' do 
     context "with valid input" do 
-
       it "should save a new post object" do 
         post :create, post: Fabricate.attributes_for(:post)
         expect(Post.all).to_not be_empty
@@ -52,7 +50,6 @@ describe PostsController do
     end
 
     context "with invalid input" do 
-
       it "should render the new template" do 
         post :create, post: { title: "test" }
         expect(response).to render_template(:new)
@@ -66,6 +63,62 @@ describe PostsController do
       it "should set a flash alert" do 
         post :create, post: { title: "test" }
         expect(flash[:alert]).to_not be_blank
+      end
+    end
+  end
+
+  describe 'GET edit' do 
+    it "sets the correct @post" do 
+      post = Fabricate(:post)
+      get :edit, id: post.id
+      expect(assigns(:post)).to eq post
+    end
+  end
+
+  describe 'POST update' do 
+    context "with valid input" do 
+      it "sets the correct post" do 
+        new_post = Fabricate(:post)
+        post :update, id: new_post.id, post: { title: "Second", content: "New Body"}
+        expect(assigns(:post)).to eq new_post
+      end
+
+      it "redirects to the post page" do 
+        new_post = Fabricate(:post)
+        post :update, id: new_post.id, post: { title: "Second", content: "New Body"}
+        expect(response).to redirect_to post_path(new_post)
+      end
+
+      it "sets the flash notice" do 
+        new_post = Fabricate(:post)
+        post :update, id: new_post.id, post: { title: "Second", content: "New Body"}
+        expect(flash[:notice]).to_not be_blank
+      end
+
+      it "updates the post" do 
+        new_post = Fabricate(:post, title: "First", content: "Old Body")
+        post :update, id: new_post.id, post: { title: "Second", content: "New Body"}
+        expect(new_post.reload.title).to eq("Second")
+      end
+    end
+
+    context "with invalid input" do 
+      it "doesn't update the post" do 
+        new_post = Fabricate(:post, title: "First")
+        post :update, id: new_post.id, post: { title: "", content: "New Body"}
+        expect(new_post.reload.title).to eq "First"
+      end
+
+      it "sets the flash alert" do 
+        new_post = Fabricate(:post, title: "First")
+        post :update, id: new_post.id, post: { title: "", content: "New Body"}
+        expect(flash[:alert]).to_not be_blank
+      end
+
+      it "renders the edit template" do 
+        new_post = Fabricate(:post, title: "First")
+        post :update, id: new_post.id, post: { title: "", content: "New Body"}
+        expect(response).to render_template(:edit)
       end
     end
   end
