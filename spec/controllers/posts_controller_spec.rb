@@ -25,4 +25,49 @@ describe PostsController do
     end
   end
 
+  describe 'GET new' do 
+    it "should set @post to a new post object" do 
+      get :new
+      expect(assigns(:post)).to be_instance_of(Post)
+    end
+  end
+
+  describe 'POST create' do 
+    context "with valid input" do 
+
+      it "should save a new post object" do 
+        post :create, post: Fabricate.attributes_for(:post)
+        expect(Post.all).to_not be_empty
+      end
+
+      it "redirects to the post show page" do 
+        post :create, post: Fabricate.attributes_for(:post)
+        expect(response).to redirect_to post_path(Post.last)
+      end
+
+      it "sets a flash notice" do 
+        post :create, post: Fabricate.attributes_for(:post)
+        expect(flash[:notice]).to_not be_blank
+      end
+    end
+
+    context "with invalid input" do 
+
+      it "should render the new template" do 
+        post :create, post: { title: "test" }
+        expect(response).to render_template(:new)
+      end
+
+      it "shouldn't save a post object" do 
+        post :create, post: { title: "test" }
+        expect(Post.all).to be_empty
+      end
+
+      it "should set a flash alert" do 
+        post :create, post: { title: "test" }
+        expect(flash[:alert]).to_not be_blank
+      end
+    end
+  end
+
 end
