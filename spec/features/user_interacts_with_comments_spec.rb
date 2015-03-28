@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe "User interacting with comments" do
+  before { register_new_user }
 
   it "creates a comment" do
-    go_home
     create_post
 
     expect(page).to have_content "Comments (0)"
@@ -15,7 +15,6 @@ describe "User interacting with comments" do
   end
 
   it "deletes a comment" do
-    go_home
     create_post
     create_comment
 

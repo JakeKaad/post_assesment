@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe "user interacts with posts" do
+  before { register_new_user }
+
   it "has a home page" do
     go_home
     expect(page).to have_content "All"

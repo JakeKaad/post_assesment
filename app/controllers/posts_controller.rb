@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,7 +10,7 @@ class PostsController < ApplicationController
     @comments = @post.comments
   end
 
-  def new 
+  def new
     @post = Post.new
 
   end
@@ -27,7 +26,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit 
+  def edit
   end
 
   def update
@@ -37,7 +36,7 @@ class PostsController < ApplicationController
     else
       flash[:alert] = "Something went wrong"
       render :edit
-    end    
+    end
   end
 
   def destroy
