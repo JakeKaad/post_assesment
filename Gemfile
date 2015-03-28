@@ -15,6 +15,7 @@ gem 'bootstrap_form'
 gem 'fabrication'
 gem 'faker'
 gem 'nested_form'
+gem 'devise'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
