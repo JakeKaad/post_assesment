@@ -10,15 +10,19 @@ describe PostsController do
   end
 
   describe 'GET show' do
-    let(:post) { Fabricate(:post, user_id: 1) }
-    before { get :show, id: post.id }
+    let(:user) { Fabricate(:user) }
+    let(:post) { Fabricate(:post, user_id: user.id) }
+    before do
+      sign_in user
+      get :show, id: post.id
+    end
 
     it "sets @post to the correct post" do
       expect(assigns(:post)).to eq(post)
     end
 
     it "doesn't set @post to the incorrect post" do
-      not_post = Fabricate(:post)
+      not_post = Fabricate(:post, user_id: 2)
       expect(assigns(:post)).to_not eq(not_post)
     end
   end
@@ -31,6 +35,9 @@ describe PostsController do
   end
 
   describe 'POST create' do
+    let(:user) { Fabricate(:user) }
+    before { sign_in user }
+
     context "with valid input" do
       before { post :create, post: Fabricate.attributes_for(:post) }
 
