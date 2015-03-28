@@ -12,7 +12,7 @@ describe "user interacts with posts" do
     expect(page).to have_content "All"
   end
 
-  it "creates a new post" do 
+  it "creates a new post" do
     go_home
     create_post
 
@@ -20,7 +20,7 @@ describe "user interacts with posts" do
     expect(page).to have_content "Some content"
   end
 
-  it "deletes a post" do 
+  it "deletes a post" do
     go_home
     create_post
 
@@ -28,7 +28,7 @@ describe "user interacts with posts" do
     expect(page).to_not have_content "First"
   end
 
-  it "edits a post" do 
+  it "edits a post" do
     go_home
     create_post
 
@@ -43,13 +43,3 @@ describe "user interacts with posts" do
 end
 
 
-def go_home
-  visit '/'
-end
-
-def create_post
-  click_link "New Post"
-  fill_in "Title", with: "First"
-  fill_in "Content", with: "Some content."
-  click_on "Create Post"
-end
