@@ -21,7 +21,7 @@ I chose to use the Devise gem here.  I had never used Devise before so it was ve
 
 Heroku
 -------
-This repository is live on <a href="https://limitless-falls-2538.herokuapp.com/posts/1">Heroku</a>
+This repository is live on <a href="https://limitless-falls-2538.herokuapp.com">Heroku</a>
 
 Licensing
 --------
