@@ -10,7 +10,7 @@
   <div class='well span8'>
     <p><%= @post.content %></p>
     <p>
-      <span class='quiet'>posted by </span> PLACEHOLDER NAME
+      <span class='quiet'>posted by </span> <%= @post.user.email %>
       <small>at <%= fix_date_time(@post.created_at) %></small>
     </p>
   </div>
@@ -22,7 +22,7 @@
   <div class='row'>
     <div class="well span8">
       <em>"<%= comment.content %>"</em>
-        <span class='quiet'>posted by </span> PLACEHOLDER NAME
+        <span class='quiet'>posted by </span> <%= comment.user.email %>
         <small>at <%= fix_date_time(comment.created_at) %></small><br>
         <div class="comment-options">
           <small><%= link_to "Delete Comment", post_comment_path(@post, comment), data: {confirm: "Are you sure?", method: "delete"} %></small>
