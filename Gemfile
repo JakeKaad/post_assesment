@@ -29,6 +29,8 @@ group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'launchy'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :production do

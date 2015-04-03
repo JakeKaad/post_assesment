@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 describe "User interacting with comments" do
-  before { register_new_user }
+  let(:user) { Fabricate(:user) }
+  before { login_as(user, scope: :user) }
 
-  it "creates a comment" do
+  it "creates a comment", js: true do
+    visit root_path
     create_post
 
     expect(page).to have_content "Comments (0)"
@@ -15,6 +17,7 @@ describe "User interacting with comments" do
   end
 
   it "deletes a comment" do
+    visit root_path
     create_post
     create_comment
 
