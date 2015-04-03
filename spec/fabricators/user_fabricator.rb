@@ -1,5 +1,5 @@
 Fabricator(:user) do
-  email { 'test@test.com' }
+  email { 'test@example.com' }
   password { 'password' }
-  phone_number { '(555)555-5555'}
+  phone_number { '(503)688-3002'}
 end

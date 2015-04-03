@@ -1,5 +1,5 @@
 def go_home
-  visit '/'
+  visit root_path
 end
 
 def create_post

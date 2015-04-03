@@ -17,13 +17,12 @@
 </div>
 
 
-<h4> <%= "Comments (#{@post.comments.size})" %> </h4>
-
-<% @comments.each do |comment| %>
-  <div id='comments-display'>
+<h4 id='comments-size'> <%= "Comments (#{@post.comments.size})" %> </h4>
+<div id='comments-display'>
+  <% @comments.each do |comment| %>
     <%= render comment %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 
 <div id='comment-form'>

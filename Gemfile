@@ -32,6 +32,9 @@ group :test do
   gem 'shoulda-matchers'
   gem 'launchy'
   gem 'vcr'
+  gem 'webmock'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :production do

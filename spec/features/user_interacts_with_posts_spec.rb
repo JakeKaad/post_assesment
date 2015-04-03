@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 describe "user interacts with posts" do
-  before { register_new_user }
+  let(:user) { Fabricate(:user) }
+  before { login_as(user, scope: :user) }
 
   it "has a home page" do
-    go_home
+    visit root_path
     expect(page).to have_content "All"
 
     click_link "New Post"
