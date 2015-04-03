@@ -1,4 +1,4 @@
 Fabricator(:user) do
-  email { 'test@test.com' }
+  email { 'test@example.com' }
   password { 'password' }
 end

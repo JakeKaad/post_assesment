@@ -1,2 +1,3 @@
 $('#comments-display').prepend('<%= j render Comment.first %>');
+$('#comments-size').html('<%= j "Comments (#{@post.comments.size})" %>')
 $('#comment_content').val('');
