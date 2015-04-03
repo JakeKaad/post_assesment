@@ -18,21 +18,15 @@
 
 
 <h4> <%= "Comments (#{@post.comments.size})" %> </h4>
+
 <% @comments.each do |comment| %>
-  <div class='row'>
-    <div class="well span8">
-      <em>"<%= comment.content %>"</em>
-        <span class='quiet'>posted by </span> <%= comment.user.email %>
-        <small>at <%= fix_date_time(comment.created_at) %></small><br>
-        <div class="comment-options">
-          <small><%= link_to "Delete Comment", post_comment_path(@post, comment), data: {confirm: "Are you sure?", method: "delete"} %></small>
-        </div>
-    </div>
+  <div id='comments-display'>
+    <%= render comment %>
   </div>
 <% end %>
 
-<%= bootstrap_form_for([@post, @comment]) do |f| %>
-  <%= f.text_area :content, label: "New Comment" %>
-  <%= f.submit class: "btn btn-info btn-xs", value: "Create" %>
-<% end %>
+
+<div id='comment-form'>
+  <%= render 'comment_form' %>
+</div>
 
