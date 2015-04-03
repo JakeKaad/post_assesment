@@ -9,7 +9,10 @@
     else
       flash[:alert] = "Something went wrong"
     end
-    redirect_to post
+    respond_to do |format|
+      format.html { redirect_to post }
+      format.js { }
+    end
   end
 
   def destroy
