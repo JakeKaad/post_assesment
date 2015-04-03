@@ -16,6 +16,8 @@ gem 'fabrication'
 gem 'faker'
 gem 'nested_form'
 gem 'devise'
+gem 'dotenv-rails'
+gem 'rest-client'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
@@ -29,6 +31,8 @@ group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'launchy'
+  gem 'vcr'
+  gem 'webmock'
   gem 'poltergeist'
   gem 'database_cleaner'
 end
