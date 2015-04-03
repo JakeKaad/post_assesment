@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   def send_message(body)
-    response = RestClient::Request.new(
+    RestClient::Request.new(
       method: :post,
       url: "https://api.twilio.com/2010-04-01/Accounts/#{ENV['TWILIO_ACCOUNT_SID']}/SMS/Messages.json",
       user: ENV['TWILIO_ACCOUNT_SID'],
