@@ -6,6 +6,7 @@
     comment.user_id = current_user.id
     if comment.save
       flash[:notice] = "Comment created!"
+      comment.user.send_message(comment.content)
     else
       flash[:alert] = "Something went wrong"
     end

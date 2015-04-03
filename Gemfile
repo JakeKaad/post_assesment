@@ -16,6 +16,8 @@ gem 'fabrication'
 gem 'faker'
 gem 'nested_form'
 gem 'devise'
+gem 'dotenv-rails'
+gem 'rest-client'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
