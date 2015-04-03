@@ -31,6 +31,7 @@ group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'launchy'
+  gem 'vcr'
 end
 
 group :production do

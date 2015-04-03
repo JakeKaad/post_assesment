@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "User interacting with comments" do
+describe "User interacting with comments", vcr: true do
   before { register_new_user }
 
   it "creates a comment" do
